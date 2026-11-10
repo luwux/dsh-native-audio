@@ -3,6 +3,8 @@ packages:
 
 allowBuilds:
   koffi: true
+  '@google/genai': false
+  protobufjs: false
 
 minimumReleaseAgeExclude:
   - '@earendil-works/pi-ai@1.5.1'
