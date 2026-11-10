@@ -1,0 +1,173 @@
+{
+  "name": "dsh-native-audio",
+  "version": "0.1.0-alpha.1",
+  "description": "Native audio input for DeepSeek Harness: models hear composer uploads, read_audio results, and subagent audio",
+  "license": "MIT",
+  "author": "luwux",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luwux/dsh-native-audio.git"
+  },
+  "homepage": "https://github.com/luwux/dsh-native-audio#readme",
+  "bugs": {
+    "url": "https://github.com/luwux/dsh-native-audio/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "audio",
+    "native-audio",
+    "multimodal",
+    "input_audio",
+    "gemini",
+    "openrouter"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./types": {
+      "types": "./lib/types/types.d.ts",
+      "default": "./lib/types.js"
+    },
+    "./gemini": {
+      "types": "./lib/types/gemini/index.d.ts",
+      "default": "./lib/gemini/index.js"
+    },
+    "./gemini-plugin": {
+      "types": "./lib/types/gemini-plugin.d.ts",
+      "default": "./lib/gemini-plugin.js"
+    },
+    "./openai-compatible": {
+      "types": "./lib/types/openai-compatible/index.d.ts",
+      "default": "./lib/openai-compatible/index.js"
+    },
+    "./read-audio-tool": {
+      "types": "./lib/types/read-audio-tool.d.ts",
+      "default": "./lib/read-audio-tool.js"
+    },
+    "./file-ingress": {
+      "types": "./lib/types/file-ingress.d.ts",
+      "default": "./lib/file-ingress.js"
+    },
+    "./package.json": "./package.json",
+    "./pi-ai-audio-plugin": {
+      "types": "./lib/types/pi-ai-audio-plugin.d.ts",
+      "default": "./lib/pi-ai-audio-plugin.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    }
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/types/**/*.d.ts",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES"
+  ],
+  "scripts": {
+    "build": "node -e \"require('node:fs').rmSync('lib',{recursive:true,force:true})\" && tsc -p tsconfig.build.json && node scripts/build-client.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "check": "pnpm run typecheck && pnpm run test && pnpm run build",
+    "prepack": "pnpm run check"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/cordis-plugin-loader": "~1.1.0",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-attachment": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-credentials": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-fs": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-home-paths": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-launch-environment": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm-pi-ai": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-working-directory": "0.2.2-rc.1"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/cordis-plugin-group": "1.1.0",
+    "@deepseek-ai/cordis-plugin-include": "1.1.0",
+    "@deepseek-ai/cordis-plugin-loader": "1.1.0",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-agent-loop": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-api-remotes": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-attachment": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-attachment-local": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-brand": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-client-locale": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-client-ui-primitives": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-client-ui-renderer": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-client-ui-settings": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-client-ui-settings-models": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-client-ui-slots": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction-basic": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-credentials": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-fs": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-home-paths": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-jobs": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-launch-environment": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm-pi-ai": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-sandbox": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-scope": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-persistence": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-projection": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-query": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-settings": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-subagent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-subagent-spawn-in-process": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-system-prompt": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-timeout": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-token-meter": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-executor-native": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-subagent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-subagent-control": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-user-approval": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-working-directory": "0.2.2-rc.1",
+    "@earendil-works/pi-ai": "1.5.1",
+    "@types/node": "22.20.0",
+    "@types/react": "19.2.0",
+    "js-yaml": "4.2.0",
+    "react": "19.2.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.8"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-api-remotes"
+      ]
+    }
+  }
+}

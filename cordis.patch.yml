@@ -1,0 +1,11 @@
+- insert:
+    - id: native-audio
+      name: 'dsh-native-audio'
+    - id: llm-google-gemini-audio
+      name: 'dsh-native-audio/gemini-plugin'
+    - id: native-audio-routes
+      name: 'dsh-native-audio/pi-ai-audio-plugin'
+    - id: native-audio-read-tool
+      name: 'dsh-native-audio/read-audio-tool'
+    - id: native-audio-file-ingress
+      name: 'dsh-native-audio/file-ingress'

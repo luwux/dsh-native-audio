@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024", "DOM"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": false,
+    "types": ["node"],
+    "noEmit": true
+  },
+  "include": ["typecheck.mts"]
+}

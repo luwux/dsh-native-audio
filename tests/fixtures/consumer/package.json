@@ -1,0 +1,5 @@
+{
+  "name": "dsh-native-audio-packed-consumer",
+  "private": true,
+  "type": "module"
+}
